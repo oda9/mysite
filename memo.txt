@@ -1,2 +1,6 @@
-次はここから始める。
 https://docs.djangoproject.com/ja/2.1/intro/tutorial04/
+
+https://github.com/oda9/mysite
+
+アイコンはここからダウンロード
+http://flat-icon-design.com/

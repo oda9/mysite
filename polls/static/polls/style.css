@@ -2,6 +2,52 @@ li a {
     color: green;
 }
 
-body {
-    background: white url("images/background.gif") no-repeat;
+red {
+    background-color: rgb(255,0,0);
+}
+
+green {
+    background-color: rgb(0,255,0);
+}
+
+blue {
+    background-color: rgb(0,0,255);
+}
+
+.headColor {
+	background-color: rgba(51,153,255,0.75)
+}
+
+body, h1, p {
+	margin: 0;
+	padding: 0;
+}
+
+div#content {
+	background-color: #99cc33;
+	width: 100%;
+	overflow: hidden;
+}
+
+div#main {
+	background-color: #0080ff;
+	height: 1024px;
+	width: 	90%;
+	float: 	right;
+}
+
+nav {
+	color: #339933;
+	background-color: #99cc33;
+	width: 100px;
+	float: left;
+}
+
+footer {
+	color: #ffffff;
+	background-color: #339933;
+}
+
+.center{
+	text-align: center;
 }
