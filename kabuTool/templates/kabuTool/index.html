@@ -1,0 +1,9 @@
+{% extends "polls/base.html" %}
+{% block body %}
+
+{% csrf_token %}
+<form action="{% url 'kabuTool:store' %}" method="post">
+<input type="submit" value="実行">
+</form>
+
+{% endblock %}

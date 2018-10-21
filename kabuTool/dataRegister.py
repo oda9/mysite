@@ -1,21 +1,7 @@
 import csv
-from django.http import HttpResponseRedirect
-from django.shortcuts import get_object_or_404, render
-from django.urls import reverse
-from django.views import generic
-from django.utils import timezone
 
 from .models import kabuka
 
-class IndexView(generic.TemplateView):
-    template_name = 'kabuTool/index.html'
-
-
-def store(request):
-
-    data_store(csv_reader())
-
-    return HttpResponseRedirect(reverse('polls:results'))
 
 def csv_reader():
 
@@ -47,3 +33,10 @@ def data_store(list):
             ,   chs_ne      = ""
             ,   del_flg     = ""
             )
+
+
+if __name__ == '__main__':
+
+    list = csv_reader()
+
+    data_store(list)

@@ -14,4 +14,19 @@ manage.py startapp kabuTool
 マイグレーション
 manage.py migrate
 manage.py makemigrations kabuTool
-manage.py sqlmigrate polls 0001
+manage.py sqlmigrate kabuTool 0001
+manage.py migrate
+
+
+ユーザの作成
+manage.py createsuperuser
+
+
+モデルの使い方
+https://qiita.com/okoppe8/items/66a8747cf179a538355b
+
+
+python manage.py startapp sample => アプリケーションの作成
+python manage.py migrate         => DBマイグレーションの実行
+python manage.py shell           => インタラクティブShellの起動
+python manage.py runserver       => 開発サーバーの起動
