@@ -7,3 +7,11 @@ http://flat-icon-design.com/
 
 mysqlを使用するための準備
 pip install PyMySQL
+
+新規アプリの追加
+manage.py startapp kabuTool
+
+マイグレーション
+manage.py migrate
+manage.py makemigrations kabuTool
+manage.py sqlmigrate polls 0001
