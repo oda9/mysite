@@ -4,3 +4,6 @@ https://github.com/oda9/mysite
 
 アイコンはここからダウンロード
 http://flat-icon-design.com/
+
+mysqlを使用するための準備
+pip install PyMySQL
