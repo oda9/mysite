@@ -30,3 +30,12 @@ python manage.py startapp sample => アプリケーションの作成
 python manage.py migrate         => DBマイグレーションの実行
 python manage.py shell           => インタラクティブShellの起動
 python manage.py runserver       => 開発サーバーの起動
+
+CSSライブラリ
+http://getbootstrap.com/
+
+チュートリアル
+https://techacademy.jp/magazine/6270
+
+getbootstrapリファレンス
+https://getbootstrap.com/docs/3.3/css/

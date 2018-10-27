@@ -5,17 +5,10 @@ from django.urls import reverse
 from django.views import generic
 from django.utils import timezone
 
+from django.db.utils import IntegrityError
+
 from .models import kabuka
 
-class IndexView(generic.TemplateView):
-    template_name = 'kabuTool/index.html'
-
-
-def store(request):
-
-    data_store(csv_reader())
-
-    return HttpResponseRedirect(reverse('polls:results'))
 
 def csv_reader():
 
@@ -29,21 +22,37 @@ def csv_reader():
 def data_store(list):
 
     for i, row in enumerate(list):
-        print(i, row)
-
         if i == 0:
             code = row[0].split(' ')[0]
-            print(code)
 
         if i >= 2:
-            kabuka.objects.update_or_create(
-                code        = code
-            ,   kjn_ymd     = ""
-            ,   hzm_ne      = ""
-            ,   tak_ne      = ""
-            ,   yas_ne      = ""
-            ,   owr_ne      = ""
-            ,   dekidaka    = ""
-            ,   chs_ne      = ""
-            ,   del_flg     = ""
-            )
+            kjn_ymd = row[0].replace("-", "")
+
+            try:
+                kabuka.objects.update_or_create(
+                    code        = code
+                ,   kjn_ymd     = kjn_ymd
+                ,   hzm_ne      = int(row[1])
+                ,   tak_ne      = int(row[2])
+                ,   yas_ne      = int(row[3])
+                ,   owr_ne      = int(row[4])
+                ,   dekidaka    = int(row[5])
+                ,   chs_ne      = 0
+                ,   del_flg     = "0"
+                )
+            except IntegrityError:
+                print("データ登録でエラーが発生しました。code=$1,kjn_ymd=$2", code, kjn_ymd)
+
+
+class IndexView(generic.TemplateView):
+
+    data_store(csv_reader())
+
+    template_name = 'kabuTool/index.html'
+
+
+def store(request):
+
+    data_store(csv_reader())
+
+    return HttpResponseRedirect(reverse('kabuTool:results'))
