@@ -1,36 +1,130 @@
 <!DOCTYPE html>
-<html>
-	<head lang="ja">
-	 	<meta charset="UTF-8">
-	  	<title>mysite</title>
-	  	{% load static %}
-		<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<p class="headColor">
-			<a href="/polls">トップページへ(将来的には画像にしたい。)</a>
-		</p>
-	</head>
+<title>Bootstrap Sample</title>
 
-	<body>
-		<div id="content">
-			<div id="main">
-				{% block body %}
-				{% endblock %}
-			</div>
-			<nav>
-				<div class="center">
-<!-- 					<a href="/polls/1"> -->
-<!-- 						<img src="{% static 'polls/images/calc.png' %}" alt="リンク1"><br> -->
-<!-- 					</a> -->
-					<a href="/polls">リンク１</a><br>
-					<a href="/polls">リンク１</a><br>
+{% load static %}
+<!-- BootstrapのCSS読み込み -->
+<link href="{% static 'kabuTool/css/bootstrap.min.css' %}" rel="stylesheet">
+
+<!-- Custom styles for this template -->
+<link href="{% static 'kabuTool/css/dashboard.css' %}" rel="stylesheet">
+
+<!-- jQuery読み込み -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<!-- BootstrapのJS読み込み -->
+<script src="{% static 'kabuTool/js/bootstrap.min.js' %}"></script>
+
+<style type="text/css">/* Chart.js */
+	@-webkit-keyframes chartjs-render-animation {
+		from {
+			opacity: 0.99
+		}
+		to {
+			opacity: 1
+		}
+	}
+
+	@keyframes chartjs-render-animation {
+		from {
+			opacity: 0.99
+		}
+		to {
+			opacity: 1
+		}
+	}
+
+	.chartjs-render-monitor {
+		-webkit-animation: chartjs-render-animation 0.001s;
+		animation: chartjs-render-animation 0.001s;
+	}
+
+	.nav-line {
+	    margin: 10px 20px;
+	    border-top: solid 1px #dbdbdb;
+	}
+</style>
+</head>
+<body>
+	<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+		<a class="navbar-brand col-sm-3 col-md-2 mr-0" href="./">
+			Company name
+		</a>
+		<input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+		<ul class="navbar-nav px-3">
+			<li class="nav-item text-nowrap">
+				<a class="nav-link" href="#">
+					Sign out
+				</a>
+			</li>
+		</ul>
+	</nav>
+
+	<div class="container-fluid">
+		<div class="row">
+			<nav class="col-md-2 d-none d-md-block bg-light sidebar">
+				<div class="sidebar-sticky">
+					<ul class="nav flex-column">
+						<li class="nav-item">
+							<a class="nav-link active" href="#">
+								<span data-feather="bar-chart-2"></span>
+									条件検索
+								<span class="sr-only">
+									(current)
+								</span>
+							</a>
+						</li>
+
+						<li class="nav-item">
+							<a class="nav-link" href="#">
+								<span data-feather="file"></span>
+									企業比較
+							</a>
+						</li>
+
+						<li class="nav-item">
+							<a class="nav-link" href="#">
+								<span data-feather="layers"></span>
+									株価ダウンロード
+							</a>
+						</li>
+					</ul>
+
+					<div class="nav-line"></div>
+
+					<ul class="nav flex-column mb-2">
+						<li class="nav-item">
+							<a class="nav-link" href="#">
+								<span data-feather="file-text"></span>
+									このサイトについて
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">
+								<span data-feather="file-text"></span>
+									基本的な使い方
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">
+								<span data-feather="file-text"></span>
+									指標の定義
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">
+								<span data-feather="file-text"></span>
+									よくある質問
+							</a>
+						</li>
+					</ul>
 				</div>
-
 			</nav>
-		</div>
-	</body>
-
-	<footer>
-		<p>制作者：JNK</p>
-	</footer>
-</html>
+{% block body %}
+{% endblock %}
+</body>
